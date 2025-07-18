@@ -26,7 +26,7 @@ It also allows checking payment status and notifies the user on Telegram.
 2. **Install dependencies:**
    ```sh
    pip install -r requirements.txt
-   pip install pydantic-settings
+   
    ```
 
 3. **Set up environment variables:**
