@@ -87,23 +87,19 @@ It also allows checking payment status and notifies the user on Telegram.
 - The `.env` file is required for configuration.
 
 ## Structure
-#/app
-#__init__.py
-Marks the directory as a Python package. (Usually empty.)
-#config.py
-Handles application configuration using environment variables via pydantic-settings. Defines the Settings class, which loads API keys, secrets, and other config from a .env file.
-#main.py
-The FastAPI application entry point. Creates the FastAPI app and includes the API routes.
-#models.py
-Contains Pydantic models for request and response validation, such as the structure for creating payment links and returning payment link responses.
-#razorpay_client.py
-Implements async functions to interact with the Razorpay API (creating payment links, checking payment status) and utility to send messages via Telegram.
-#routes.py
-Defines the API endpoints (routes) for the service:
-/send-link: Create a payment link and send it to a user on Telegram.
-/payment-status/{link_id}: Check payment status and notify the user on Telegram.
-#telegram_bot.py
-Contains helper functions to interact with the Telegram Bot API, such as sending messages and retrieving chat IDs.
+## 📁 Project Structure
+
+```plaintext
+/app
+│
+├── __init__.py           # Marks the directory as a Python package (usually empty)
+├── config.py             # Loads environment variables via Pydantic Settings
+├── main.py               # Entry point for FastAPI app and route inclusion
+├── models.py             # Pydantic request/response models (e.g., payment link schema)
+├── razorpay_client.py    # Async Razorpay integration + Telegram notification logic
+├── routes.py             # API endpoints: /send-link and /payment-status/{link_id}
+└── telegram_bot.py       # Telegram Bot API functions: get chat_id, send messages
+
 
 
 
