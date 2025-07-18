@@ -86,4 +86,24 @@ It also allows checking payment status and notifies the user on Telegram.
 - The Telegram bot must have received at least one message from the user to send messages.
 - The `.env` file is required for configuration.
 
+## Structure
+-- app/
+-__init__.py
+Marks the directory as a Python package. (Usually empty.)
+-config.py
+Handles application configuration using environment variables via pydantic-settings. Defines the Settings class, which loads API keys, secrets, and other config from a .env file.
+-main.py
+The FastAPI application entry point. Creates the FastAPI app and includes the API routes.
+-models.py
+Contains Pydantic models for request and response validation, such as the structure for creating payment links and returning payment link responses.
+-razorpay_client.py
+Implements async functions to interact with the Razorpay API (creating payment links, checking payment status) and utility to send messages via Telegram.
+-routes.py
+Defines the API endpoints (routes) for the service:
+/send-link: Create a payment link and send it to a user on Telegram.
+/payment-status/{link_id}: Check payment status and notify the user on Telegram.
+-telegram_bot.py
+Contains helper functions to interact with the Telegram Bot API, such as sending messages and retrieving chat IDs.
+
+
 
